@@ -4,12 +4,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="icons/icon-128x128.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="Lists PWA" />
+  <meta name="theme-color" content="#39c16c" />
+  <meta name="description" content="Lists PWA with React" />
+
   <title>TablePlay!</title>
 </head>
 
 <body>
   <div id="root"></div>
   <script src="../dist/bundle.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('serviceWorker.js');
+      });
+    }
+  </script>
 </body>
 
 </html>
