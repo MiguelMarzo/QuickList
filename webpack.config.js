@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const { GenerateSW } = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.js",
@@ -15,7 +16,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
-      }
+      },
     ]
   },
   resolve: { extensions: ["*", ".js", ".jsx", ".ts", ".tsx"] },
@@ -26,8 +27,8 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "public/"),
+    publicPath: "http://localhost:3000/dist/",
     port: 5000,
-    publicPath: "http://localhost:5000/dist/",
     hotOnly: true,
     host: '0.0.0.0',
     compress: true,
@@ -36,5 +37,15 @@ module.exports = {
     overlay: true,
     clientLogLevel: 'info',
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(), 
+    new GenerateSW({       
+      clientsClaim: true,
+      skipWaiting: true,
+      runtimeCaching: [{
+        urlPattern: /\.(?:png|jpg|jpeg|svg|js|ts|tsx|jsx|json)$/,
+        handler: 'CacheFirst',
+      }],
+    }),
+  ]
 };
