@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const { GenerateSW } = require('workbox-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.js",
@@ -16,6 +17,15 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(png|jpg|jpeg|svg|gif)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          },
+        },
       },
     ]
   },
@@ -39,7 +49,13 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(), 
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: path.join(__dirname, 'public/index.html'),
+      chunksSortMode: 'dependency',
+    }),
     new GenerateSW({       
+      swDest: 'service-worker.js',
       clientsClaim: true,
       skipWaiting: true,
       runtimeCaching: [{
