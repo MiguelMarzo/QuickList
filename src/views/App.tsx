@@ -24,7 +24,6 @@ export const App = () => {
 
   return (
     <Router>
-      <div>
         <AppBar position="static">
           <Toolbar>
             <IconButton onClick={toggleMenu(true)} edge="start"  color="inherit" aria-label="menu">
@@ -55,7 +54,6 @@ export const App = () => {
             <TableGames />
           </Route>
         </Switch>
-      </div>
     </Router>
   )
 }
