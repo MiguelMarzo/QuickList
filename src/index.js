@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./views/App.tsx";
+import { App } from "./views/App.tsx";
 import { FirebaseContext, Firebase } from './firebase'
 
 if ('serviceWorker' in navigator) {
