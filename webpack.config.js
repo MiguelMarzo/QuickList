@@ -26,14 +26,28 @@ module.exports = {
         test: /\.(png|jpg|jpeg|svg|gif|webmanifest)$/,
         use: {
           loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'img/'
+          }
         },
       },
+      {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/'
+          }
+        }
+      }
     ]
   },
+  devtool: "eval-cheap-source-map",
   resolve: { extensions: ["*", ".js", ".jsx", ".ts", ".tsx"] },
   output: {
     path: path.resolve(__dirname, "dist/"),
-    publicPath: "/dist/",
     filename: "bundle.js"
   },
   devServer: {
@@ -55,14 +69,14 @@ module.exports = {
       template: path.join(__dirname, 'public/index.html'),
       chunksSortMode: 'dependency',
     }),
-    new GenerateSW({       
+    new GenerateSW({
       swDest: 'service-worker.js',
       clientsClaim: true,
       skipWaiting: true,
       runtimeCaching: [{
         urlPattern: /\.(?:png|jpg|jpeg|svg|js|ts|tsx|jsx|json)$/,
-        handler: 'CacheFirst',
-      }],
-    }),
+        handler: 'StaleWhileRevalidate'
+      }]
+    })
   ]
 };
