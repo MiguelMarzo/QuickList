@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Toolbar, IconButton, ListItem, List } from '@material-ui/core';
+import { Toolbar, IconButton, Drawer } from '@material-ui/core';
 import { Link } from "react-router-dom";
-import { StyledAppBar, StyledDrawer } from './MaintMenu.styles';
+import { StyledAppBar, StyledList, StyledListItem } from './MaintMenu.styles';
 
 const menuOptions = [
   {text: 'Home', route: '/'}, 
@@ -22,21 +22,22 @@ export const MainMenu = () => {
       <StyledAppBar position="static">
         <Toolbar>
           <IconButton onClick={toggleMenu(true)} edge="start"  color="inherit" aria-label="menu">
-            Abrir
+            <img src='img/menu.svg' />
           </IconButton>
         </Toolbar>
       </StyledAppBar>
 
-      <StyledDrawer anchor="left" open={menuIsOpened} onClose={toggleMenu(false)}>
-        <List>
+      <Drawer anchor="left" open={menuIsOpened} onClose={toggleMenu(false)}>
+        <StyledList>
           {
             menuOptions.map((option, index) => (
-            <ListItem button key={index} onClick={toggleMenu(false)}>
-            <Link to={option.route}>{option.text}</Link> 
-            </ListItem>
-          ))}
-        </List>
-      </StyledDrawer>
+              <StyledListItem button key={index} onClick={toggleMenu(false)}>
+                <Link to={option.route}>{option.text}</Link> 
+              </StyledListItem>
+            ))
+          }
+        </StyledList>
+      </Drawer>
     </>
   )
 }
