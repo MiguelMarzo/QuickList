@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { App } from "./views/App.tsx";
 import { FirebaseContext, Firebase } from './firebase'
 import 'typeface-roboto';
-import './icons/index';
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

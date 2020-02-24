@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Toolbar, IconButton, Drawer } from '@material-ui/core';
 import { Link } from "react-router-dom";
-import { StyledAppBar, StyledList, StyledListItem } from './MaintMenu.styles';
+import { StyledAppBar, StyledList, StyledListItem, MainMenuIcon } from './MaintMenu.styles';
+import menuIcon from './menuIcon.png';
 
 const menuOptions = [
   {text: 'Home', route: '/'}, 
@@ -22,7 +23,7 @@ export const MainMenu = () => {
       <StyledAppBar position="static">
         <Toolbar>
           <IconButton onClick={toggleMenu(true)} edge="start"  color="inherit" aria-label="menu">
-            <img src='img/menu.svg' />
+            <MainMenuIcon src={menuIcon} />
           </IconButton>
         </Toolbar>
       </StyledAppBar>
