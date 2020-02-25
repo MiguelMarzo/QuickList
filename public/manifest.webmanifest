@@ -3,17 +3,17 @@
     "short_name": "TB",
     "icons": [
       {
-        "src": "./icons/tb.png",
+        "src": "./images/tb.png",
         "type": "image/png",
         "sizes": "128x128"
       },
       {
-        "src": "./icons/tb.png",
+        "src": "./images/tb.png",
         "type": "image/png",
         "sizes": "256x256"
       },
       {
-        "src": "./icons/tb.png",
+        "src": "./images/tb.png",
         "type": "image/png",
         "sizes": "512x512"
       }
