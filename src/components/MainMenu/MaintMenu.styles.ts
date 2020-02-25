@@ -21,6 +21,15 @@ export const StyledLink = styled(Link)`
 `
 
 export const MainMenuIcon = styled.img`
+    position: absolute;
+    left: 10px;
     width: 35px;
     height: 35px;
+`
+
+export const MainTitle = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
 `

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Toolbar, IconButton, Drawer, ListItem } from '@material-ui/core';
-import { StyledAppBar, StyledList, StyledLink, MainMenuIcon } from './MaintMenu.styles';
+import { StyledAppBar, StyledList, StyledLink, MainMenuIcon, MainTitle } from './MaintMenu.styles';
 import menuIcon from './menuIcon.png';
 
 const menuOptions = [
@@ -24,6 +24,7 @@ export const MainMenu = () => {
           <IconButton onClick={toggleMenu(true)} edge="start"  color="inherit" aria-label="menu">
             <MainMenuIcon src={menuIcon} />
           </IconButton>
+            <MainTitle>TablePlay!</MainTitle>
         </Toolbar>
       </StyledAppBar>
 
