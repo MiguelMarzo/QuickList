@@ -1,4 +1,4 @@
-import { AppBar, ListItem, List } from '@material-ui/core';
+import { AppBar, List } from '@material-ui/core';
 import { styled } from '../../theme/themedStyledComponents';
 import { Link } from "react-router-dom";
 
