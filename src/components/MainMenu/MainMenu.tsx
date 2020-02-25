@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { Toolbar, IconButton, Drawer } from '@material-ui/core';
-import { Link } from "react-router-dom";
-import { StyledAppBar, StyledList, StyledListItem, MainMenuIcon } from './MaintMenu.styles';
+import { Toolbar, IconButton, Drawer, ListItem } from '@material-ui/core';
+import { StyledAppBar, StyledList, StyledLink, MainMenuIcon } from './MaintMenu.styles';
 import menuIcon from './menuIcon.png';
 
 const menuOptions = [
@@ -32,9 +31,9 @@ export const MainMenu = () => {
         <StyledList>
           {
             menuOptions.map((option, index) => (
-              <StyledListItem button key={index} onClick={toggleMenu(false)}>
-                <Link to={option.route}>{option.text}</Link> 
-              </StyledListItem>
+              <ListItem button key={index} onClick={toggleMenu(false)}>
+                <StyledLink to={option.route}>{option.text}</StyledLink> 
+              </ListItem>
             ))
           }
         </StyledList>
