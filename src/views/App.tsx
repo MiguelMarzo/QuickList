@@ -4,7 +4,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { TableGames } from "./TableGames/TableGames";
+import TableGames from "./TableGames/TableGames";
 import './app.scss';
 import { MainMenu } from "../components/MainMenu/MainMenu";
 import { styled } from "../theme/themedStyledComponents";
