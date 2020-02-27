@@ -7,29 +7,13 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { gamesRepository } from '../../core/games.repository';
 
 const TableGames = ({firebase}) => {
-  const { gamesCollection } = firebase;
   const [games, setGames] = React.useState([]);
 
   React.useEffect(() => {
-    const unsubscribe = gamesCollection
-      .orderBy('name', 'desc')
-      .onSnapshot(({ docs }) => {
-        const gamesFromDB = []
-
-        docs.forEach(doc => {
-          const details = {
-            id: doc.id,
-            holder: doc.data().holder,
-            name: doc.data().name
-          }
-          gamesFromDB.push(details)
-        })
-
-        setGames(gamesFromDB)
-      })
-
+    const unsubscribe = gamesRepository.getGames(firebase, setGames);
     return () => unsubscribe()
   }, [])
 

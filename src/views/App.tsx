@@ -8,6 +8,7 @@ import TableGames from "./TableGames/TableGames";
 import './app.scss';
 import { MainMenu } from "../components/MainMenu/MainMenu";
 import { styled } from "../theme/themedStyledComponents";
+import NewGame from "./NewGame/NewGame";
 
 export const App = () =>  (
   <Router>
@@ -16,7 +17,7 @@ export const App = () =>  (
     <MainContent>
       <Switch>
         <Route path="/new-game">
-          <>New game view</>
+          <NewGame />
         </Route>
         <Route path="/about">
           <>About view</>
