@@ -1,5 +1,5 @@
 import { styled } from '../../theme/themedStyledComponents';
-import { Select, InputLabel } from '@material-ui/core';
+import { Select, InputLabel, Button } from '@material-ui/core';
 
 export const NewGameTitle = styled.div`
     margin-bottom: 24px;
@@ -25,4 +25,8 @@ export const StyledLabel = styled(InputLabel)`
 export const FormActions = styled.div`
     display: flex;
     justify-content: center;
+`
+export const StyledButton = styled(Button)`
+    height: 60px;
+    min-width: 60px;
 `
