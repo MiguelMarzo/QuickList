@@ -22,5 +22,9 @@ export const gamesRepository = {
     const { gamesCollection } = firebase;
     game.date = new Date();
     return gamesCollection.add(game);
+  },
+  deleteGame: (firebase, game) => {
+    const { gamesCollection } = firebase;
+    return gamesCollection.doc(game.id).delete()
   }
 }
