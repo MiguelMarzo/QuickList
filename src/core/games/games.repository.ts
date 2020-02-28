@@ -1,3 +1,5 @@
+import { Game } from "./game";
+
 export const gamesRepository = {
   getGames: (firebase, setGames) => {
     const { gamesCollection } = firebase;
@@ -7,10 +9,11 @@ export const gamesRepository = {
         const gamesFromDB = []
 
         docs.forEach(doc => {
-          const details = {
+          const details: Game = {
             id: doc.id,
             holder: doc.data().holder,
-            name: doc.data().name
+            name: doc.data().name,
+            date: doc.data().date
           }
           gamesFromDB.push(details)
         })

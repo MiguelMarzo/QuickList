@@ -7,7 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { gamesRepository } from '../../core/games.repository';
+import { gamesRepository } from '../../core/games/games.repository';
 import { DeleteIcon } from './TableGames.styles';
 
 const TableGames = ({firebase}) => {
