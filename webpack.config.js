@@ -72,7 +72,8 @@ module.exports = {
       runtimeCaching: [{
         urlPattern: /\.(?:png|jpg|jpeg|svg|js|ts|tsx|jsx|json)$/,
         handler: 'StaleWhileRevalidate'
-      }]
+      }],
+      maximumFileSizeToCacheInBytes: 20000000 
     })
   ]
 };
