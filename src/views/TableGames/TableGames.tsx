@@ -28,29 +28,28 @@ const TableGames = ({firebase}) => {
 
   return (
     <>
-      <div>Tabla</div>
        <TableContainer component={Paper}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Nombre</TableCell>
-            <TableCell>Quien lo tiene?</TableCell>
-            <TableCell></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {games.map(game => (
-            <TableRow key={game.name}>
-              <TableCell>{game.name}</TableCell>
-              <TableCell>{game.holder}</TableCell>
-              <TableCell>
-                <DeleteIcon onClick={() => deleteGame(game)} />
-              </TableCell>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Nombre</TableCell>
+              <TableCell>Quien lo tiene?</TableCell>
+              <TableCell></TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {games.map(game => (
+              <TableRow key={game.name}>
+                <TableCell>{game.name}</TableCell>
+                <TableCell>{game.holder}</TableCell>
+                <TableCell>
+                  <DeleteIcon onClick={() => deleteGame(game)} />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </>
   )
 }

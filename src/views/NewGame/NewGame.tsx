@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { withFirebase } from './../../firebase/withFirebase'
-import { gamesRepository } from '../../core/games.repository';
+import { gamesRepository } from '../../core/games/games.repository';
 import { TextField, MenuItem, CircularProgress } from '@material-ui/core';
 import { NewGameTitle, FormGroup, StyledSelect, StyledLabel, FormActions, StyledButton } from './NewGame.styles';
 

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Toolbar, IconButton, Drawer, ListItem } from '@material-ui/core';
-import { StyledAppBar, StyledList, StyledLink, MainMenuIcon, MainTitle } from './MaintMenu.styles';
+import { StyledAppBar, StyledList, StyledLink, MainMenuIcon, MainTitle, ConexionErrorMessage, MainMenuWrapper } from './MaintMenu.styles';
 import menuIcon from './menuIcon.png';
+import { isOnline } from '../../firebase/onlineManager';
 
 const menuOptions = [
   {text: 'Home', route: '/'}, 
@@ -18,7 +19,7 @@ export const MainMenu = () => {
   };
 
   return (
-    <>
+    <MainMenuWrapper>
       <StyledAppBar position="static">
         <Toolbar>
           <IconButton onClick={toggleMenu(true)} edge="start"  color="inherit" aria-label="menu">
@@ -39,6 +40,11 @@ export const MainMenu = () => {
           }
         </StyledList>
       </Drawer>
-    </>
+      {!isOnline && (
+        <ConexionErrorMessage>
+          <div>Sin conexión</div>
+        </ConexionErrorMessage>
+      )}
+    </MainMenuWrapper>
   )
 }
