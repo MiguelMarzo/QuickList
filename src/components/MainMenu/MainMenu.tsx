@@ -25,7 +25,7 @@ export const MainMenu = () => {
           <IconButton onClick={toggleMenu(true)} edge="start"  color="inherit" aria-label="menu">
             <MainMenuIcon src={menuIcon} />
           </IconButton>
-            <MainTitle>TablePlay!</MainTitle>
+            <MainTitle>QuickList!</MainTitle>
         </Toolbar>
       </StyledAppBar>
 
